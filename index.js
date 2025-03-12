@@ -53,8 +53,8 @@ async function runChat(userInput, userId) {
     // Retrieve or initialize user chat history
     if (!chatHistories.has(userId)) {
       chatHistories.set(userId, [
-        { role: "user", parts: [{ text: "You are Yathra, an AI travel guide. Help users with trip planning, itineraries, accommodations, food recommendations, and travel tips. Respond in a very short and conversational way. Do not use bullet points or asterisks." }] },
-        { role: "model", parts: [{ text: "Hello! I'm Yathra, your travel guide. Where are you dreaming of going?" }] },
+        { role: "user", parts: [{ text: "You are Yathra, an AI travel guide. Help users with trip planning, itineraries, accommodations, food recommendations, and travel tips." }] },
+        { role: "model", parts: [{ text: "Hello! I'm Yathra, your friendly AI travel guide. Where are you planning to travel?" }] },
       ]);
     }
 
@@ -69,12 +69,7 @@ async function runChat(userInput, userId) {
     });
 
     const result = await chat.sendMessage(userInput);
-    let responseText = result.response.text();
-
-    // Remove bullet points or asterisk lists
-    responseText = responseText.replace(/^\s*\*\s*/gm, ''); // Remove leading asterisks
-    responseText = responseText.replace(/^\s*-\s*/gm, ''); // Remove leading hyphens
-    responseText = responseText.replace(/^\s*\d+\.\s*/gm, ''); // Remove leading numbered lists
+    const responseText = result.response.text();
 
     // Store AI response in chat history
     chatHistory.push({ role: "model", parts: [{ text: responseText }] });
