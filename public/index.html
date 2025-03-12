@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yathra - AI Travel Guide</title>
+    <link rel="stylesheet" href="NEW.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="logo">
+                <i class="fas fa-globe-americas"></i>
+            </div>
+            <h1>Yathra</h1>
+            <p>Your AI Travel Guide</p>
+        </div>
+
+        <div class="chat-messages" id="chat-messages">
+            <div class="message bot-message">
+                <div class="avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <p>Hello! I'm Yathra, your friendly AI travel guide. Where are you planning to travel?</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Ask me about travel destinations...">
+            <button id="send-button">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="NEW.js"></script>
+</body>
+</html>
